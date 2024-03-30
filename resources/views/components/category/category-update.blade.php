@@ -26,7 +26,7 @@
 </div>
 
 
-<script>
+{{-- <script>
 
 
    async function FillUpUpdateForm(id){
@@ -70,3 +70,4 @@
 
 
 </script>
+ --}}

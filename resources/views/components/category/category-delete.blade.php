@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
 
      async  function  itemDelete(){
             let id=document.getElementById('deleteID').value;
@@ -34,3 +34,4 @@
      }
 
 </script>
+ --}}

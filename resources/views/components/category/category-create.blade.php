@@ -24,7 +24,7 @@
     </div>
 </div>
 
-
+{{-- 
 <script>
     async function Save() {
         let categoryName = document.getElementById('categoryName').value;
@@ -47,3 +47,4 @@
         }
     }
 </script>
+ --}}
