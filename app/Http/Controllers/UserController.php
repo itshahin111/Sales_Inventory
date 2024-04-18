@@ -67,6 +67,7 @@ class UserController extends Controller
         }
     }
 // Define a function named UserLogin which takes a Request object as input
+
 function UserLogin(Request $request){
     // Search for a user with the provided email and password
     $count = User::where("email", $request->input("email"))
@@ -85,6 +86,9 @@ function UserLogin(Request $request){
             "message" => "User Login Successful",
         ], 200)->cookie('token',$token,60*24*30,'/');
     } else {
+        // Introduce a delay of 3 seconds before returning the unauthorized status
+        sleep(3); // Adjust the sleep duration as needed
+
         // If no user or more than one user matches the credentials, return unauthorized status
         return response()->json([
             "status" => "Login Failed",
@@ -92,6 +96,7 @@ function UserLogin(Request $request){
         ], 401);
     }
 }
+
 
 
     function SendOTPCode(Request $request){
@@ -103,7 +108,7 @@ function UserLogin(Request $request){
         if($count==1){
             // OTP Email Address
             Mail::to($email)->send(new OTPMail($otp));
-            // OTO Code Table Update
+            // OTP Code Table Update
             User::where('email','=',$email)->update(['otp'=>$otp]);
 
             return response()->json([
